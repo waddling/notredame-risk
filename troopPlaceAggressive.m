@@ -5,74 +5,74 @@ function troopPlaceAggressive(x, p)
 RiskGame(1).quad = 'West Quad';
 RiskGame(1).building = 'McGlinn Hall';
 RiskGame(1).placement = [1 2 3 4; 5 6 7 8];
-RiskGame(1).player = 0;
+RiskGame(1).player = 2;
 RiskGame(1).locations = {'Ryan Hall','Hammes Bookstore','South Dining Hall'};
-RiskGame(1).armies = 0;
+RiskGame(1).armies = 12;
 
 RiskGame(2).quad = 'West Quad';
 RiskGame(2).building = 'Ryan Hall';
 RiskGame(2).placement = [10 21 31 40; 50 60 70 80];
-RiskGame(2).player = 0;
+RiskGame(2).player = 1;
 RiskGame(2).locations = {'McGlinn Hall','Morris Inn','Hammes Bookstore'};
-RiskGame(2).armies = 0;
+RiskGame(2).armies = 8;
 
 RiskGame(3).quad = 'West Quad';
 RiskGame(3).building = 'Morris Inn';
 RiskGame(3).placement = [100 210 310 400; 500 600 700 800];
-RiskGame(3).player = 0;
+RiskGame(3).player = 1;
 RiskGame(3).locations = {'Ryan Hall','Hammes Bookstore','Stinson-Remick'};
-RiskGame(3).armies = 0;
+RiskGame(3).armies = 4;
 
 RiskGame(4).quad = 'West Quad';
 RiskGame(4).building = 'Hammes Bookstore';
 RiskGame(4).placement = [9 10 01 02; 03 04 05 06];
-RiskGame(4).player = 0;
+RiskGame(4).player = 1;
 RiskGame(4).locations = {'McGlinn Hall','Ryan Hall','Morris Inn','DPAC'};
-RiskGame(4).armies = 0;
+RiskGame(4).armies = 10;
 
 %% South Quad
 
 RiskGame(5).quad = 'South Quad';
 RiskGame(5).building = 'Carroll Hall';
 RiskGame(5).placement = [1 2 3 4 5 6];
-RiskGame(5).player = 0;
+RiskGame(5).player = 2;
 RiskGame(5).locations = {'Lewis Hall','The Rock'};
-RiskGame(5).armies = 0;
+RiskGame(5).armies = 8;
 
 RiskGame(6).quad = 'South Quad';
 RiskGame(6).building = 'The Rock';
 RiskGame(6).placement = [1 2 3 4 5 6];
-RiskGame(6).player = 0;
+RiskGame(6).player = 2;
 RiskGame(6).locations = {'Carroll Hall','Morrissey Manor','South Dining Hall','Joyce Center'};
-RiskGame(6).armies = 0;
+RiskGame(6).armies = 1;
 
 RiskGame(7).quad = 'South Quad';
 RiskGame(7).building = 'Morrissey Manor';
 RiskGame(7).placement = [1 2 3 4 5 6];
-RiskGame(7).player = 0;
+RiskGame(7).player = 1;
 RiskGame(7).locations = {'The Rock','South Dining Hall','CoMo','Grotto'};
 RiskGame(7).armies = 0;
 
 RiskGame(8).quad = 'South Quad';
 RiskGame(8).building = 'South Dining Hall';
 RiskGame(8).placement = [1 2 3 4 5 6];
-RiskGame(8).player = 0;
+RiskGame(8).player = 1;
 RiskGame(8).locations = {'Alumni Hall','The Rock','Morrissey Manor','CoMo','McGlinn Hall'};
-RiskGame(8).armies = 0;
+RiskGame(8).armies = 5;
 
 RiskGame(9).quad = 'South Quad';
 RiskGame(9).building = 'CoMo';
 RiskGame(9).placement = [1 2 3 4 5 6];
-RiskGame(9).player = 0;
+RiskGame(9).player = 2;
 RiskGame(9).locations = {'Alumni Hall','South Dining Hall','Morrissey Manor','Sorin Hall'};
-RiskGame(9).armies = 0;
+RiskGame(9).armies = 9;
 
 RiskGame(10).quad = 'South Quad';
 RiskGame(10).building = 'Alumni Hall';
 RiskGame(10).placement = [1 2 3 4 5 6];
-RiskGame(10).player = 0;
+RiskGame(10).player = 1;
 RiskGame(10).locations = {'Como','South Dining Hall','Eck Law'};
-RiskGame(10).armies = 0;
+RiskGame(10).armies = 12;
 
 % Check if this is correctly Placed
 RiskGame(11).quad = 'South Quad';
@@ -94,7 +94,7 @@ RiskGame(12).armies = 0;
 RiskGame(13).quad = 'Stadium/Engineering Quad';
 RiskGame(13).building = 'Jordan';
 RiskGame(13).placement = [1 2 3 4 5 6];
-RiskGame(13).player = 1;
+RiskGame(13).player = 0;
 RiskGame(13).locations = {'Joyce Center','The Stadium','Hesburgh Library'};
 RiskGame(13).armies = 0;
 
@@ -122,7 +122,7 @@ RiskGame(16).armies = 0;
 RiskGame(17).quad = 'Stadium/Engineering Quad';
 RiskGame(17).building = 'Mendoza';
 RiskGame(17).placement = [1 2 3 4 5 6];
-RiskGame(17).player = 1;
+RiskGame(17).player = 0;
 RiskGame(17).locations = {'Stinson-Remick','The Stadium','DeBartolo Hall','DPAC'};
 RiskGame(17).armies = 0;
 
@@ -152,14 +152,14 @@ RiskGame(20).armies = 0;
 RiskGame(21).quad = 'God Quad';
 RiskGame(21).building = 'Basilica';
 RiskGame(21).placement = [1 2 3 4 5 6];
-RiskGame(21).player = 1;
+RiskGame(21).player = 0;
 RiskGame(21).locations = {'Grotto','Sorin Hall','The Golden Dome'};
 RiskGame(21).armies = 0;
 
 RiskGame(22).quad = 'God Quad';
 RiskGame(22).building = 'Sorin Hall';
 RiskGame(22).placement = [1 2 3 4 5 6];
-RiskGame(22).player = 1;
+RiskGame(22).player = 0;
 RiskGame(22).locations = {'Grotto','Basilica','The Golden Dome','CoMo'};
 RiskGame(22).armies = 0;
 
@@ -182,14 +182,14 @@ RiskGame(24).armies = 0;
 RiskGame(25).quad = 'Mod Quad';
 RiskGame(25).building = 'Stepan Center';
 RiskGame(25).placement = [1 2 3 4 5 6];
-RiskGame(25).player = 1;
+RiskGame(25).player = 0;
 RiskGame(25).locations = {'Pasquerilla West','Pasquerilla East','North Dining Hall'};
 RiskGame(25).armies = 0;
 
 RiskGame(26).quad = 'Mod Quad';
 RiskGame(26).building = 'Pasquerilla West';
 RiskGame(26).placement = [1 2 3 4 5 6];
-RiskGame(26).player = 1;
+RiskGame(26).player = 0;
 RiskGame(26).locations = {'Stepan Center','Pasquerilla East','Flaherty Hall','Siegfried Hall'};
 RiskGame(26).armies = 0;
 
@@ -203,7 +203,7 @@ RiskGame(27).armies = 0;
 RiskGame(28).quad = 'Mod Quad';
 RiskGame(28).building = 'Siegfried Hall';
 RiskGame(28).placement = [1 2 3 4 5 6];
-RiskGame(28).player = 1;
+RiskGame(28).player = 0;
 RiskGame(28).locations = {'Hesburgh Library','Pasquerilla West','Flaherty Hall','Farley Hall'};
 RiskGame(28).armies = 0;
 
@@ -240,7 +240,7 @@ RiskGame(32).armies = 0;
 RiskGame(33).quad = 'North Quad';
 RiskGame(33).building = 'Keenan Hall';
 RiskGame(33).placement = [1 2 3 4 5 6];
-RiskGame(33).player = 1;
+RiskGame(33).player = 0;
 RiskGame(33).locations = {'St. Liam','North Dining Hall','Farley Hall','Lewis Hall','Cavanaugh Hall'};
 RiskGame(33).armies = 0;
 
@@ -254,72 +254,154 @@ RiskGame(34).armies = 0;
 RiskGame(35).quad = 'North Quad';
 RiskGame(35).building = 'Cavanaugh Hall';
 RiskGame(35).placement = [1 2 3 4 5 6];
-RiskGame(35).player = 1;
+RiskGame(35).player = 0;
 RiskGame(35).locations = {'Lewis Hall','Keenan Hall','Farley Hall','LaFun'};
 RiskGame(35).armies = 0;
 
 RiskGame(36).quad = 'North Quad';
 RiskGame(36).building = 'Farley Hall';
 RiskGame(36).placement = [1 2 3 4 5 6];
-RiskGame(36).player = 1;
+RiskGame(36).player = 0;
 RiskGame(36).locations = {'Cavanaugh Hall','Keenan Hall','North Dining Hall','Siegfried Hall'};
 RiskGame(36).armies = 0;
 
 
+%% Run through Structure and Create Sub-Array of Owned Territories
 
-% The function is passed x: the number of troops to distribute at the end
-% of each turn, and p, which player it is
+myTerritories= {};
+counter = 1;
 
-% Can do an if statement to figure out what type of AI p is?
-
-
-%outer = x*.6; % The aggressive AI will distribute 60 percent of their troops 
-% in their outer holdings
-%inner = x - outer; 
-% Hmm have to figure out ratios...
-
-outer = {}; % This array will contain all territories held by the player that
-% are considered part of the outer ring. This means that at least one adjacent
-% territory is controlled by another player
-inner = {}; % This array will hold "inner" territories: only those that are 
-% bordered completely by territories that the player also controls
-placeO = 1; % A placeholder variable for the outer array to expand it
-placeI = 1; % Placeholder variable for inner array to expand it
-
-for icount = 1:36 % Outer loop iterates through each element in the RiskGame
-    % structure and checks if the player owns that territory
+for icount = 1:36
+    % If the inputted player matches the owner of the territory, its
+    % position in the structure is stored in the array myTerritories
     if RiskGame(icount).player == p
-        % Iterates through the array that contains adjacent territories
-        for jcount = 1:size(RiskGame(icount).locations)
-            % Stores the name of the adjacent territory
-            adj = RiskGame(icount).locations{1, jcount};
-            for ncount = 1:36
-                % Goes through the entire RiskGame array again and compares
-                % the adjacent territory name to each name in the array
-                if strcmp(adj, RiskGame(ncount).building) == 1
-                    if RiskGame(ncount).player ~= p
-                        % If any adjacent territory is owned by another
-                        % player, the original territory is placed in the
-                        % "outer" array
-                        outer{1, placeO} = RiskGame(icount);
-                        % The placeholder for this array increases by 1
-                        % after each new element is added
-                        placeO = placeO + 1;
-                        marker = 1; % The marker is set to 1 if the element
-                        % was added to the outer array
-                    end
+        myTerritories{1, counter} = icount;
+        counter = counter + 1;
+    end
+end
+
+%% Go Through Sub-Array and Determine Surrounding Troop Ratio
+
+enemy = 0;
+myTroops = 0;
+troopRatio = {};
+next = 1;
+
+for jcount = 1:length(myTerritories)
+    % Goes through each territory owned by the inputted player and checks
+    % that territory's array of adjacent territories
+    for ncount = 1:length(RiskGame(myTerritories{jcount}).locations)
+        % The name of each adjacent territory is stored as a string
+        adj = RiskGame(myTerritories{jcount}).locations{ncount};
+        for rcount = 1:36
+            % The adjacent territory is found in the structure array by
+            % using string compare
+            if strcmp(adj, RiskGame(rcount).building) == 1
+                % If the adjacent territory is owned by the inputted
+                % player, its armies are added to the myTroops count for
+                % the original territory
+                if RiskGame(rcount).player == p
+                    myTroops = myTroops + RiskGame(rcount).armies;
+                    % If the adjacent territory is owned by a different player,
+                    % its armies are added to the enemy count for the original
+                    % territory
+                else
+                    enemy = enemy + RiskGame(rcount).armies;
                 end
             end
         end
-        if marker ~= 1 % If the element was not added to the outer array,
-            % it is added to the inner array in the same way
-            inner{1,placeI} = RiskGame(icount);
-            placeI = placeI + 1;
+    end
+    % After iterating through each adjacent territory, the myTroops count
+    % adds on the number of troops in the original territory to avoid
+    % dividing by zero in the case that no adjacent territories contain the
+    % inputted player's troops
+    myTroops = myTroops + RiskGame(myTerritories{jcount}).armies;
+    % The enemy to myTroops ratio is then determined for the territory and
+    % placed in the troopRatio array
+    troopRatio{next} = enemy/myTroops;
+    % The counter variable next holds the place in the troopRatio array
+    next = next + 1;
+    % The enemy and MyTroops counts are reset to 0 before the process is
+    % repeated for the next territory owned by the player
+    enemy = 0;
+    myTroops = 0;
+end
+
+%% Allocate Troops Depending on Strategy
+
+% The cell array is converted to a matrix
+troopRatiob = cell2mat(troopRatio);
+% All of the ratios in the matrix are added together
+total = sum(troopRatiob);
+% The matrix of ratios is divided by the sum of the ratios to create a new
+% matrix with ratios that will be proportional to troop placement
+Ratios = troopRatiob ./ total;
+
+% Sorts the ratios in increasing order and descending order
+incRatios = sort(Ratios);
+decRatios = sort(Ratios, 'descend');
+
+% A new variable that stores the inputted number of troops to place
+xx = x;
+
+
+% While the number of troops to place is greater than 0, the loop will
+% continue to execute
+while xx > 0
+    % Goes through the array of ratios
+    for lcount = 1:length(Ratios)
+        for qcount = 1:length(incRatios)
+            % If the ratio in the normally ordered array and the array in
+            % increasing order match, then the corresponding index from the
+            % decreasing array is used
+            % This is because the aggressive troop placement strategy uses
+            % the opposite ratios of the defensive troop placement
+            % strategy.  Aggressive places more of its troops in places
+            % with a lower enemy/troop ratio
+            if Ratios(lcount) == incRatios(qcount)
+                % The amount of troops to place is the total amount times
+                % the ratio, rounded down with the FLOOR command
+                placeTroop = floor(xx*decRatios(qcount));
+                % The corresponding spot in the larger structure is determined
+                % by the number held in the myTerritories array
+                spot = myTerritories{lcount};
+                % The number of troops placed is added to the current number
+                % of troops in the structure
+                RiskGame(spot).armies = RiskGame(spot).armies + placeTroop;
+                % The amount of troops placed is subtracted from the number
+                % of troops to place
+                xx = xx - placeTroop;
+            end
         end
-        % The marker is reset to 0
-        marker = 0;
+    end
+    % This failsafe is built in in case the amount of troops added  to territories
+    % was less than the number of troops to place after the for loop is
+    % exited.
+    if xx > 0
+        placeTroop = xx;
+        for lcount = 1:length(Ratios)
+            % Finds which territory has the smallest enemy/myTroops ratio
+            % and allocates the remaining troops there (since this is the
+            % aggressive troop placement AI
+            if Ratios(lcount) == decRatios(1)
+                spot = myTerritories{lcount};
+                RiskGame(spot).armies = RiskGame(spot).armies + placeTroop;
+                xx = xx - placeTroop;
+                % Now the while loop will be exited since xx = 0
+            end
+        end
     end
 end
+
+
+
+
+
+
+
+
+
+
 
 
 
