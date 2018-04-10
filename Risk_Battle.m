@@ -9,11 +9,11 @@ function [AttackArmy, DefendArmy] = Risk_Battle(AttackArmy, DefendArmy)
 
 countervariable = 0;
 
-if AttackArmy >= 3
+if AttackArmy > 3
     AttackDice = 3;
-elseif AttackArmy == 2
+elseif AttackArmy > 2
     AttackDice = 2;
-elseif AttackArmy == 1
+elseif AttackArmy > 1
     AttackDice = 1;
 end
 
