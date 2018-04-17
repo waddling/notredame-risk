@@ -17,13 +17,13 @@ enemyTroops = 10;
 
 %% Choose to attack
 
-ar = 0.8; % Aggresive AI ratio
+ar = 0.8; % Aggressive AI ratio
 br = 1.5; % Balanced AI ratio
 dr = 2.5; % Defensive AI ratio
 
 % Chooses what AI is attacking with the if statements and
 
-if strcmp(AIType,'Aggresive')
+if strcmp(AIType,'Aggressive')
     while playerTroops / enemyTroops >= ar && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
