@@ -1,10 +1,10 @@
-function Risk_Load_Board
+function RiskGame = Risk_Load_Board(RiskGame)
 
 % Loads the board by randomly assigning territories to each player
 
 %% Set parameters
 
-load('Risk_Structure.mat');
+% load('Risk_Structure.mat');
 
 numPlayers = 4;
 maxTerritories = length(RiskGame)/numPlayers;
