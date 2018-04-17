@@ -1,16 +1,17 @@
-% How to Risk?
-% To Risk or not to Risk?
+% The Main Script
 
 clear
 clc
 
-load('Risk_Structure.mat')
+load('Risk_Structure.mat') % Loads our initial structure
 
-%% Entrance to Hell
+% Calls the function that distributes troops everywhere
 
 RiskGame = Risk_Load_Board(RiskGame);
 
- troopNum = 50000;
+troopNum = 5;
+
+% This example for loop will allow players 1-4 to place 5 troops using the aggressive strategy
 
 for player = 1:4
     
