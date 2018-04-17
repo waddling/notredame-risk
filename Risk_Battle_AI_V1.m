@@ -1,13 +1,19 @@
-function Risk_Battle_AI_V1(AIType,playerCountry,enemyCountry)
+function RiskGame = Risk_Battle_AI_V1(RiskGame,AIType,playerCountry,enemyCountry)
 
 % Takes a type of AI and chooses whether to attack or not
 
 %% Load & Set Structure
 
-load('Risk_Structure.mat');
+% load('Risk_Structure.mat');
 
-playerTroops = RiskGame(playerCountry).armies;
-enemyTroops = RiskGame(enemyCountry).armies;
+% This is just for the memo since we don't have the placement integrated
+% into the main game
+
+playerTroops = 15;
+enemyTroops = 10;
+
+% playerTroops = RiskGame(playerCountry).armies;
+% enemyTroops = RiskGame(enemyCountry).armies;
 
 %% Choose to attack
 
@@ -17,7 +23,7 @@ dr = 2.5; % Defensive AI ratio
 
 % Chooses what AI is attacking with the if statements and
 
-if strcmp(AIType,'Aggressive')
+if strcmp(AIType,'Aggresive')
     while playerTroops / enemyTroops >= ar && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
