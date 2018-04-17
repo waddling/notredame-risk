@@ -1,4 +1,4 @@
-function troopPlaceBalanced(x, p)
+function troopPlaceBalanced(troopNum, player)
 
 %% West Quad
 
@@ -225,7 +225,7 @@ myTerritories = 0;
 theirTerritories = 0;
 
 for count = 1:length(RiskGame)
-    if RiskGame(count).player == p
+    if RiskGame(count).player == player
         myTerritories = myTerritories + 1;
     end
 end
@@ -234,7 +234,7 @@ enemy1 = 0;
 enemy2 = 0;
 enemy3 = 0;
 
-if p == 1 
+if player == 1 
     for icount = 1:length(RiskGame)
         if RiskGame(count).player == 2
             enemy1 = enemy1 + 1;
@@ -244,7 +244,7 @@ if p == 1
             enemy3 = enemy3 + 1;
         end
     end
-elseif p == 2
+elseif player == 2
     for icount = 1:length(RiskGame)
         if RiskGame(count).player == 1
             enemy1 = enemy1 + 1;
@@ -254,7 +254,7 @@ elseif p == 2
             enemy3 = enemy3 + 1;
         end
     end
-elseif p == 3
+elseif player == 3
     for icount = 1:length(RiskGame)
         if RiskGame(count).player == 2
             enemy1 = enemy1 + 1;
@@ -264,7 +264,7 @@ elseif p == 3
             enemy3 = enemy3 + 1;
         end
     end
-elseif p == 4
+elseif player == 4
     for icount = 1:length(RiskGame)
         if RiskGame(count).player == 2
             enemy1 = enemy1 + 1;
@@ -286,9 +286,9 @@ TheArray = [ratio1, ratio2, ratio3, myRatio];
 sort(TheArray, 'ascend');
 
 if TheArray[1] == myRatio || TheArray[2] == myRatio
-    troopPlaceAggressive(x, p)
+    troopPlaceAggressive(troopNum, player)
 else
-    troopPlaceDefensive(x, p)
+    troopPlaceDefensive(troopNum, player)
 end
 
 
