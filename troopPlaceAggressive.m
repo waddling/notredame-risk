@@ -85,6 +85,7 @@ while xx > 0
     % Goes through the array of ratios
     for lcount = 1:length(Ratios)
         for qcount = 1:length(incRatios)
+        % This break statement ensures that the for loop will not place any more troops if xx reaches 0 
             if xx <= 0
                 break
             end
@@ -99,6 +100,8 @@ while xx > 0
                 % The amount of troops to place is the total amount times
                 % the ratio, rounded down with the FLOOR command
                 placeTroop = floor(troopNum*decRatios(qcount));
+               % If the ratio was a decimal less than 1 (which will often happen at the beginning of the game) the FLOOR 
+               % command will round this down to 0.  This IF statement corrects this issue by rounding it back up to 1.
                 if placeTroop < 1
                     placeTroop = 1;
                 end
