@@ -1,4 +1,4 @@
-function troopPlaceAggressive(x, p)
+function troopPlaceAggressive(troopNum, player)
 
 %% West Quad
 
@@ -274,7 +274,7 @@ counter = 1;
 for icount = 1:36
     % If the inputted player matches the owner of the territory, its
     % position in the structure is stored in the array myTerritories
-    if RiskGame(icount).player == p
+    if RiskGame(icount).player == player
         myTerritories{1, counter} = icount;
         counter = counter + 1;
     end
@@ -300,7 +300,7 @@ for jcount = 1:length(myTerritories)
                 % If the adjacent territory is owned by the inputted
                 % player, its armies are added to the myTroops count for
                 % the original territory
-                if RiskGame(rcount).player == p
+                if RiskGame(rcount).player == player
                     myTroops = myTroops + RiskGame(rcount).armies;
                     % If the adjacent territory is owned by a different player,
                     % its armies are added to the enemy count for the original
@@ -342,7 +342,7 @@ incRatios = sort(Ratios);
 decRatios = sort(Ratios, 'descend');
 
 % A new variable that stores the inputted number of troops to place
-xx = x;
+xx = troopNum;
 
 
 % While the number of troops to place is greater than 0, the loop will
