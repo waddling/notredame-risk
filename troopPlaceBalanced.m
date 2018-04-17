@@ -1,6 +1,5 @@
 function troopPlaceBalanced(x, p)
 
-
 %% West Quad
 
 RiskGame(1).quad = 'West Quad';
@@ -222,86 +221,78 @@ RiskGame(30).player = 0;
 RiskGame(30).locations = {'Siegfried Hall','Flaherty Hall','LaFun','Jordan'};
 RiskGame(30).armies = 0;
 
-%% North Quad (Best Quad)
+myTerritories = 0;
+theirTerritories = 0;
 
-RiskGame(31).quad = 'North Quad';
-RiskGame(31).building = 'St. Liam';
-RiskGame(31).placement = [1 2 3 4 5 6];
-RiskGame(31).player = 0;
-RiskGame(31).locations = {'North Dining Hall','Keenan Hall','Lewis Hall','DPAC'};
-RiskGame(31).armies = 0;
-
-RiskGame(32).quad = 'North Quad';
-RiskGame(32).building = 'North Dining Hall';
-RiskGame(32).placement = [1 2 3 4 5 6];
-RiskGame(32).player = 0;
-RiskGame(32).locations = {'St. Liam','Keenan Hall','Farley Hall','Stepan Center'};
-RiskGame(32).armies = 0;
-
-RiskGame(33).quad = 'North Quad';
-RiskGame(33).building = 'Keenan Hall';
-RiskGame(33).placement = [1 2 3 4 5 6];
-RiskGame(33).player = 0;
-RiskGame(33).locations = {'St. Liam','North Dining Hall','Farley Hall','Lewis Hall','Cavanaugh Hall'};
-RiskGame(33).armies = 0;
-
-RiskGame(34).quad = 'North Quad';
-RiskGame(34).building = 'Lewis Hall';
-RiskGame(34).placement = [1 2 3 4 5 6];
-RiskGame(34).player = 0;
-RiskGame(34).locations = {'St. Liam','Keenan Hall','Cavanaugh Hall','The Golden Dome','Carroll Hall'};
-RiskGame(34).armies = 0;
-
-RiskGame(35).quad = 'North Quad';
-RiskGame(35).building = 'Cavanaugh Hall';
-RiskGame(35).placement = [1 2 3 4 5 6];
-RiskGame(35).player = 0;
-RiskGame(35).locations = {'Lewis Hall','Keenan Hall','Farley Hall','LaFun'};
-RiskGame(35).armies = 0;
-
-RiskGame(36).quad = 'North Quad';
-RiskGame(36).building = 'Farley Hall';
-RiskGame(36).placement = [1 2 3 4 5 6];
-RiskGame(36).player = 0;
-RiskGame(36).locations = {'Cavanaugh Hall','Keenan Hall','North Dining Hall','Siegfried Hall'};
-RiskGame(36).armies = 0;
-
-
-%% Run through Structure and Create Sub-Array of Owned Territories
-
-myTerritories= {};
-counter = 1;
-
-for icount = 1:36
-    if RiskGame(icount).player == p
-        myTerritories{1, counter} = icount;
-        counter = counter + 1;
+for count = 1:length(RiskGame)
+    if RiskGame(count).player == p
+        myTerritories = myTerritories + 1;
     end
 end
 
+enemy1 = 0;
+enemy2 = 0;
+enemy3 = 0;
 
-numTP = floor(x/ length(myTerritories));
-xx = x;
-while xx > 0
-    if  numTP > 0
-        for count = 1: length(myTerritories)
-            RiskGame(myTerritories{count}).armies = RiskGame(myTerritories{count}).armies + numTP;
-            xx = xx - numTP;
-        end
-        if xx > 0
-            for count = 1: xx
-                random = randi(xx);
-                RiskGame(myTerritories{random}).armies = RiskGame(myTerritories{random}).armies + 1;
-                xx = xx -1;
-            end
-        end
-       
-    else
-        for count = 1: xx
-            random = randi(xx);
-            RiskGame(myTerritories{random}).armies = RiskGame(myTerritories{random}).armies + 1;
-            xx = xx -1;
+if p == 1 
+    for icount = 1:length(RiskGame)
+        if RiskGame(count).player == 2
+            enemy1 = enemy1 + 1;
+        elseif RiskGame(count).player == 3 
+            enemy2 = enemy2 + 1;
+        elseif RiskGame(count).player == 4
+            enemy3 = enemy3 + 1;
         end
     end
-    
+elseif p == 2
+    for icount = 1:length(RiskGame)
+        if RiskGame(count).player == 1
+            enemy1 = enemy1 + 1;
+        elseif RiskGame(count).player == 3 
+            enemy2 = enemy2 + 1;
+        elseif RiskGame(count).player == 4
+            enemy3 = enemy3 + 1;
+        end
+    end
+elseif p == 3
+    for icount = 1:length(RiskGame)
+        if RiskGame(count).player == 2
+            enemy1 = enemy1 + 1;
+        elseif RiskGame(count).player == 1 
+            enemy2 = enemy2 + 1;
+        elseif RiskGame(count).player == 4
+            enemy3 = enemy3 + 1;
+        end
+    end
+elseif p == 4
+    for icount = 1:length(RiskGame)
+        if RiskGame(count).player == 2
+            enemy1 = enemy1 + 1;
+        elseif RiskGame(count).player == 3 
+            enemy2 = enemy2 + 1;
+        elseif RiskGame(count).player == 1
+            enemy3 = enemy3 + 1;
+        end
+    end
 end
+
+ratio1 = enemy1/36;
+ratio2 = enemy2/36;
+ratio3 = enemy3/36;
+myRatio = myTerritories/36;
+
+TheArray = [ratio1, ratio2, ratio3, myRatio];
+
+sort(TheArray, 'ascend');
+
+if TheArray[1] == myRatio || TheArray[2] == myRatio
+    troopPlaceAggressive(x, p)
+else
+    troopPlaceDefensive(x, p)
+end
+
+
+
+
+
+
