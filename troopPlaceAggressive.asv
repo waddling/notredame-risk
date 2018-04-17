@@ -85,9 +85,7 @@ while xx > 0
     % Goes through the array of ratios
     for lcount = 1:length(Ratios)
         for qcount = 1:length(incRatios)
-            if xx <= 0
-                break
-            end
+            while xx > 0
             % If the ratio in the normally ordered array and the array in
             % increasing order match, then the corresponding index from the
             % decreasing array is used
@@ -98,7 +96,7 @@ while xx > 0
             if Ratios(lcount) == incRatios(qcount)
                 % The amount of troops to place is the total amount times
                 % the ratio, rounded down with the FLOOR command
-                placeTroop = floor(troopNum*decRatios(qcount));
+                placeTroop = floor(xx*decRatios(qcount));
                 if placeTroop < 1
                     placeTroop = 1;
                 end
@@ -111,7 +109,6 @@ while xx > 0
                 % The amount of troops placed is subtracted from the number
                 % of troops to place
                 xx = xx - placeTroop;
-                
             end
         end
     end
