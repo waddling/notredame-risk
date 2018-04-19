@@ -168,6 +168,8 @@ while victoryAchieved == false
                             [RiskGame,hasWon] = Risk_Battle_AI_V1(RiskGame,players(iP).AttackAI,iT,it);
                             if hasWon == true
                                 RiskGame(it).player = iP;
+                                RiskGame(it).armies = 1;
+                                RiskGame(iT).armies = RiskGame(iT).armies - 1;
                             end
                         end
                     end
