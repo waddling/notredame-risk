@@ -5,7 +5,8 @@ load('Risk_Structure.mat');
 [row, col, ch] = size(RiskGame(buildingNumber).image);
 
 figure(1);
-imshow(RiskGame(buildingNumber).image, 'InitialMagnification', 'fit');
+image(RiskGame(buildingNumber).image, 'AlphaData', RiskGame(buildingNumber).imgAlpha);
+axis('image', 'off');
 
 % Case per player
 switch player
@@ -59,4 +60,5 @@ switch player
 end
 
 figure(2);
-imshow(RiskGame(buildingNumber).image, 'InitialMagnification', 'fit');
+image(RiskGame(buildingNumber).image, 'AlphaData', RiskGame(buildingNumber).imgAlpha);
+axis('image', 'off');

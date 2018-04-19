@@ -1,9 +1,14 @@
 function [RiskGame, players, winner] = RiskGameExe(RiskGame, players)
 % RiskGameExe
 
+<<<<<<< HEAD
 %clear;
 %clc;
 %clf;
+=======
+clear;
+clc;
+>>>>>>> 7982222d7a0d7efe4238e89871ddebc4739d91df
 
 %% Set Parameters
 
@@ -160,7 +165,10 @@ while victoryAchieved == false
                     for it = 1 : length(RiskGame)
                         if strcmp(RiskGame(iT).locations{iL},RiskGame(it).building)...
                                 && RiskGame(iT).player ~= RiskGame(it).player
-                            RiskGame = Risk_Battle_AI_V1(RiskGame,players(iP).AttackAI,iT,it);
+                            [RiskGame,hasWon] = Risk_Battle_AI_V1(RiskGame,players(iP).AttackAI,iT,it);
+                            if hasWon == true
+                                RiskGame(it).player = iP;
+                            end
                         end
                     end
                 end
