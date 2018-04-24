@@ -46,7 +46,7 @@ RiskGame(6).quad = 'South Quad';
 RiskGame(6).building = 'The Rock';
 RiskGame(6).placement = [1 2 3 4 5 6];
 RiskGame(6).player = 0;
-RiskGame(6).locations = {'Carroll Hall','Morrissey Manor','South Dinning Hall','Joyce Center'};
+RiskGame(6).locations = {'Carroll Hall','Morrissey Manor','South Dining Hall','Joyce Center'};
 RiskGame(6).armies = 0;
 [RiskGame(6).image, RiskGame(6).mode, RiskGame(6).imgAlpha] = imread(fullfile('.', 'buildings', 'theRock.png'));
 
@@ -54,7 +54,7 @@ RiskGame(7).quad = 'South Quad';
 RiskGame(7).building = 'Morrissey Manor';
 RiskGame(7).placement = [1 2 3 4 5 6];
 RiskGame(7).player = 0;
-RiskGame(7).locations = {'The Rock','South Dinning Hall','CoMo','Grotto'};
+RiskGame(7).locations = {'The Rock','South Dining Hall','CoMo','Grotto'};
 RiskGame(7).armies = 0;
 [RiskGame(7).image, RiskGame(7).mode, RiskGame(7).imgAlpha] = imread(fullfile('.', 'buildings', 'morrisseyManor.png'));
 
@@ -70,7 +70,7 @@ RiskGame(9).quad = 'South Quad';
 RiskGame(9).building = 'CoMo';
 RiskGame(9).placement = [1 2 3 4 5 6];
 RiskGame(9).player = 0;
-RiskGame(9).locations = {'Alumni Hall','South Dinning Hall','Morrissey Manor','Sorin Hall'};
+RiskGame(9).locations = {'Alumni Hall','South Dining Hall','Morrissey Manor','Sorin Hall'};
 RiskGame(9).armies = 0;
 [RiskGame(9).image, RiskGame(9).mode, RiskGame(9).imgAlpha] = imread(fullfile('.', 'buildings', 'coMo.png'));
 
@@ -78,7 +78,7 @@ RiskGame(10).quad = 'South Quad';
 RiskGame(10).building = 'Alumni Hall';
 RiskGame(10).placement = [1 2 3 4 5 6];
 RiskGame(10).player = 0;
-RiskGame(10).locations = {'Como','South Dinning Hall','Eck Law'};
+RiskGame(10).locations = {'Como','South Dining Hall','Eck Law'};
 RiskGame(10).armies = 0;
 [RiskGame(10).image, RiskGame(10).mode, RiskGame(10).imgAlpha] = imread(fullfile('.', 'buildings', 'alumniHall.png'));
 
@@ -205,7 +205,7 @@ RiskGame(25).quad = 'Mod Quad';
 RiskGame(25).building = 'Stepan Center';
 RiskGame(25).placement = [1 2 3 4 5 6];
 RiskGame(25).player = 0;
-RiskGame(25).locations = {'Pasquerilla West','Pasquerilla East','North Dinning Hall'};
+RiskGame(25).locations = {'Pasquerilla West','Pasquerilla East','North Dining Hall'};
 RiskGame(25).armies = 0;
 [RiskGame(25).image, RiskGame(25).mode, RiskGame(25).imgAlpha] = imread(fullfile('.', 'buildings', 'stepanCenter.png'));
 
@@ -255,7 +255,7 @@ RiskGame(31).quad = 'North Quad';
 RiskGame(31).building = 'St. Liam';
 RiskGame(31).placement = [1 2 3 4 5 6];
 RiskGame(31).player = 0;
-RiskGame(31).locations = {'North Dinning Hall','Keenan Hall','Lewis Hall','DPAC'};
+RiskGame(31).locations = {'North Dining Hall','Keenan Hall','Lewis Hall','DPAC'};
 RiskGame(31).armies = 0;
 [RiskGame(31).image, RiskGame(31).mode, RiskGame(31).imgAlpha] = imread(fullfile('.', 'buildings', 'stLiam.png'));
 
@@ -271,7 +271,7 @@ RiskGame(33).quad = 'North Quad';
 RiskGame(33).building = 'Keenan Hall';
 RiskGame(33).placement = [1 2 3 4 5 6];
 RiskGame(33).player = 0;
-RiskGame(33).locations = {'St. Liam','North Dinning Hall','Farley Hall','Lewis Hall','Cavanaugh Hall'};
+RiskGame(33).locations = {'St. Liam','North Dining Hall','Farley Hall','Lewis Hall','Cavanaugh Hall'};
 RiskGame(33).armies = 0;
 [RiskGame(33).image, RiskGame(33).mode, RiskGame(33).imgAlpha] = imread(fullfile('.', 'buildings', 'keenanHall.png'));
 
@@ -295,6 +295,6 @@ RiskGame(36).quad = 'North Quad';
 RiskGame(36).building = 'Farley Hall';
 RiskGame(36).placement = [1 2 3 4 5 6];
 RiskGame(36).player = 0;
-RiskGame(36).locations = {'Cavanaugh Hall','Keenan Hall','North Dinning Hall','Siegfried Hall'};
+RiskGame(36).locations = {'Cavanaugh Hall','Keenan Hall','North Dining Hall','Siegfried Hall'};
 RiskGame(36).armies = 0;
 [RiskGame(36).image, RiskGame(36).mode, RiskGame(36).imgAlpha] = imread(fullfile('.', 'buildings', 'farleyHall.png'));

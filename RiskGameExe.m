@@ -1,14 +1,14 @@
 function [RiskGame, players, winner] = RiskGameExe(RiskGame, players)
 % RiskGameExe
 
-<<<<<<< HEAD
+%<<<<<<< HEAD
 %clear;
 %clc;
 %clf;
-=======
-clear;
-clc;
->>>>>>> 7982222d7a0d7efe4238e89871ddebc4739d91df
+%=======
+%clear;
+%clc;
+%>>>>>>> 7982222d7a0d7efe4238e89871ddebc4739d91df
 
 %% Set Parameters
 
@@ -23,21 +23,21 @@ clc;
 % Structure for which AI type players are
 % Will eventually be defined by GUI
 
-% players(1).AttackAI = 'Aggressive';
-% players(1).PlacementAI = 'Defensive';
-% players(1).bonusTroops = 0;
-% 
-% players(2).AttackAI = 'Aggressive';
-% players(2).PlacementAI = 'Defensive';
-% players(2).bonusTroops = 0;
-% 
-% players(3).AttackAI = 'Aggressive';
-% players(3).PlacementAI = 'Defensive';
-% players(3).bonusTroops = 0;
-% 
-% players(4).AttackAI = 'Aggressive';
-% players(4).PlacementAI = 'Defensive';
-% players(4).bonusTroops = 0;
+players(1).AttackAI = 'Aggressive';
+players(1).PlacementAI = '';
+players(1).bonusTroops = 0;
+
+players(2).AttackAI = 'Aggressive';
+players(2).PlacementAI = 'Random';
+players(2).bonusTroops = 0;
+
+players(3).AttackAI = 'Aggressive';
+players(3).PlacementAI = 'Random';
+players(3).bonusTroops = 0;
+
+players(4).AttackAI = 'Aggressive';
+players(4).PlacementAI = 'Random';
+players(4).bonusTroops = 0;
 
 % Define troop bonuses for Quads
 
@@ -186,7 +186,7 @@ while victoryAchieved == false
             end
         end
         if territoryCount == length(RiskGame)
-            vicroryAchieved = true;
+            victoryAchieved = true;
             winner = iP;
         end
     end

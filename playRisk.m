@@ -4,7 +4,7 @@ clear
 clc
 
 load('Risk_Structure.mat'); % Loads our initial structure
-load('PlayerTypes.mat');
+%load('PlayerTypes.mat');
 
 % Calls the function that distributes troops everywhere
 
@@ -31,7 +31,7 @@ troopNum = 5;
 
 %-----------------------------------------
 
-[RiskGame, players, winner] = RiskGameExe(RiskGame, players);
+[RiskGame, winner] = RiskGameExe(RiskGame);
 
-disp(num2str(winner));
+disp(winner);
 
