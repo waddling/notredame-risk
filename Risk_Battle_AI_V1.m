@@ -12,8 +12,8 @@ enemyTroops = RiskGame(enemyCountry).armies;
 %% Choose to attack
 
 ar = 0.8; % Aggressive AI ratio
-br = 1.5; % Balanced AI ratio
-dr = 2.5; % Defensive AI ratio
+br = 1.2; % Balanced AI ratio
+dr = 1.8; % Defensive AI ratio
 
 % Chooses what AI is attacking with the if statements and
 attackerWon = false;
