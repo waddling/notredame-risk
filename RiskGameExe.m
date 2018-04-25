@@ -164,11 +164,14 @@ while victoryAchieved == false
                     for it = 1 : length(RiskGame)
                         if strcmp(RiskGame(iT).locations{iL},RiskGame(it).building)...
                                 && RiskGame(iT).player ~= RiskGame(it).player
+                            
                             [RiskGame,hasWon] = Risk_Battle_AI_V1(RiskGame,players(iP).AttackAI,iT,it);
+                            
                             if hasWon == true
                                 RiskGame(it).player = iP;
-                                RiskGame(it).armies = 1;
-                                RiskGame(iT).armies = RiskGame(iT).armies - 1;
+                                RiskGame(it).armies = RiskGame(iT).armies - 1;
+                                RiskGame(iT).armies = 1;
+                            
                             end
                         end
                     end
@@ -185,6 +188,10 @@ while victoryAchieved == false
         if territoryCount == length(RiskGame)
             victoryAchieved = true;
             winner = iP;
+        
+        end
+        if victoryAchieved == true 
+            break
         end
     end
 end
