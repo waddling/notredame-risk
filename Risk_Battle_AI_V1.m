@@ -27,7 +27,7 @@ if strcmp(AIType,'Aggressive')
         
     end
 elseif strcmp(AIType,'Balanced') 
-    while playerTroops / enemyTroops >= br && enemyTroops ~= 0
+    while playerTroops / enemyTroops >= br && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
         RiskGame(playerCountry).armies = playerTroops;
@@ -35,7 +35,7 @@ elseif strcmp(AIType,'Balanced')
         
     end
 elseif strcmp(AIType,'Defensive')
-    while playerTroops / enemyTroops >= dr && enemyTroops ~= 0
+    while playerTroops / enemyTroops >= dr && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
         RiskGame(playerCountry).armies = playerTroops;
@@ -44,7 +44,7 @@ elseif strcmp(AIType,'Defensive')
     end
 elseif strcmp(AIType,'Random')
     rChoice = randi(2) - 1;
-    while rChoice == 1 && enemyTroops ~= 0
+    while rChoice == 1 && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
         RiskGame(playerCountry).armies = playerTroops;
