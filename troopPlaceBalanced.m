@@ -68,10 +68,10 @@ sort(TheArray, 'ascend');
 
 % If the player's position in the ratio is first or second, they are losing, and will thus implement an aggressive troop placement strategy
 if TheArray(1) == myRatio || TheArray(2) == myRatio
-    RiskGame = troopPlaceAggressive(troopNum, player, RiskGame)
+    RiskGame = troopPlaceAggressive(troopNum, player, RiskGame);
 % Otherwise, they are winning or in second place, so they will place their troops in a more defensive way to guard their territories
 else
-    RiskGame = troopPlaceDefensive(troopNum, player, RiskGame)
+    RiskGame = troopPlaceDefensive(troopNum, player, RiskGame);
 end
 
 
