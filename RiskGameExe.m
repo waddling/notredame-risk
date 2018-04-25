@@ -20,20 +20,20 @@ function [RiskGame, winner] = RiskGameExe(RiskGame, players)
 % Structure for which AI type players are
 % Will eventually be defined by GUI
 
-players(1).AttackAI = 'Aggressive';
-players(1).PlacementAI = 'Aggressive';
+players(1).AttackAI = 'Balanced';
+players(1).PlacementAI = 'Random';
 players(1).bonusTroops = 0;
 
-players(2).AttackAI = 'Aggressive';
-players(2).PlacementAI = 'Balanced';
+players(2).AttackAI = 'Defensive';
+players(2).PlacementAI = 'Random';
 players(2).bonusTroops = 0;
 
-players(3).AttackAI = 'Random';
-players(3).PlacementAI = 'Random';
+players(3).AttackAI = 'Defensive';
+players(3).PlacementAI = 'Aggressive';
 players(3).bonusTroops = 0;
 
-players(4).AttackAI = 'Balanced';
-players(4).PlacementAI = 'Random';
+players(4).AttackAI = 'Aggressive';
+players(4).PlacementAI = 'Defensive';
 players(4).bonusTroops = 0;
 
 % Define troop bonuses for Quads
@@ -56,7 +56,7 @@ victoryAchieved = false;
 
 winner = 0;
 
-while victoryAchieved == false
+while victoryAchieved == false && winner == 0
     % Check for troop bonuses
     for iP = 1 : 4
         players(iP).bonusTroops = 0;
@@ -158,18 +158,29 @@ while victoryAchieved == false
             end
         end
         % Attack Round
-        for iT = 1 : length(RiskGame)
+        for iT = 1 : length(RiskGame) % Goes through entire RiskGame structure to find territories owned by the player
             if RiskGame(iT).player == iP
+                % Searches adjacent territories
                 for iL = 1 : length(RiskGame(iT).locations)
                     for it = 1 : length(RiskGame)
-                        if strcmp(RiskGame(iT).locations{iL},RiskGame(it).building)...
-                                && RiskGame(iT).player ~= RiskGame(it).player
+                        % Compares adjacent territory to building name in
+                        % big structure.  If it matches and the player in
+                        % that territory does not equal iP, they will
+                        % attack
+                        if strcmp(RiskGame(iT).locations{iL},RiskGame(it).building)== 1 && RiskGame(it).player ~= iP
                             
+                            % Enters the battle sequence
                             [RiskGame,hasWon] = Risk_Battle_AI_V1(RiskGame,players(iP).AttackAI,iT,it);
                             
+                            % If they win, it's reassigned as their
+                            % territory
                             if hasWon == true
                                 RiskGame(it).player = iP;
+                                % Put in 3/4 of the armies they had in the
+                                % territory they are attacking from
                                 RiskGame(it).armies = floor((3/4)*(RiskGame(iT).armies));
+                                % Territory they attacked from loses the
+                                % amount of troops they placed
                                 RiskGame(iT).armies = RiskGame(iT).armies - RiskGame(it).armies;
                                 
                             end
@@ -178,10 +189,22 @@ while victoryAchieved == false
                 end
             end
         end
-        % Fortification Stage
- 
-        RiskGame = fortify(RiskGame, iP);
         
+        territoryCount = 0;
+        for iT = 1 : length(RiskGame)
+            if RiskGame(iT).player == iP
+                territoryCount = territoryCount + 1;
+            end
+        end
+        if territoryCount == length(RiskGame)
+            victoryAchieved = true;
+            winner = iP;
+            
+        end
+        % Fortification Stage
+        if victoryAchieved == false
+            RiskGame = fortify(RiskGame, iP);
+        end
         % Check for victory
         territoryCount = 0;
         for iT = 1 : length(RiskGame)
