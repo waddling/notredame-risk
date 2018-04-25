@@ -1,6 +1,6 @@
-function changeBuildingColor(buildingNumber, player)
+function RiskGame = changeBuildingColor(RiskGame, buildingNumber, player)
 
-load('Risk_Structure.mat');
+% load('Risk_Structure.mat');
 
 [row, col, ch] = size(RiskGame(buildingNumber).image);
 

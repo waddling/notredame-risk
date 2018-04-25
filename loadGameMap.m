@@ -10,6 +10,7 @@ image(NDRisk, 'AlphaData', alpha);
 
 axis('image');
 
+% Specifies the coordinates of each territory
 image1 = image('CData', RiskGame(1).image, 'AlphaData', RiskGame(1).imgAlpha);
 image1.Parent = gca;
 image1.XData = [144, 320];
