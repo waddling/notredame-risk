@@ -1,12 +1,10 @@
 function RiskGame = changeBuildingColor(RiskGame, buildingNumber, player)
 
-% load('Risk_Structure.mat');
-
 [row, col, ch] = size(RiskGame(buildingNumber).image);
 
-figure(1);
-image(RiskGame(buildingNumber).image, 'AlphaData', RiskGame(buildingNumber).imgAlpha);
-axis('image', 'off');
+% figure(1);
+% image(RiskGame(buildingNumber).image, 'AlphaData', RiskGame(buildingNumber).imgAlpha);
+% axis('image', 'off');
 
 % Case per player
 switch player
@@ -59,6 +57,6 @@ switch player
         end
 end
 
-figure(2);
-image(RiskGame(buildingNumber).image, 'AlphaData', RiskGame(buildingNumber).imgAlpha);
-axis('image', 'off');
+% figure(2);
+% image(RiskGame(buildingNumber).image, 'AlphaData', RiskGame(buildingNumber).imgAlpha);
+% axis('image', 'off');

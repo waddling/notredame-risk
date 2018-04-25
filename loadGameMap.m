@@ -1,4 +1,4 @@
-function loadGameMap(handles)
+function RiskGame = loadGameMap(handles)
 
 % Loads the initial Risk Map
 
@@ -8,7 +8,7 @@ axes(handles.gameMap);
 [NDRisk, mode, alpha] = imread(fullfile('.', 'buildings', 'NDRisk.png'));
 image(NDRisk, 'AlphaData', alpha);
 
-axis('image');
+axis('image', 'off');
 
 % Specifies the coordinates of each territory
 image1 = image('CData', RiskGame(1).image, 'AlphaData', RiskGame(1).imgAlpha);
@@ -113,7 +113,7 @@ image20.YData = [310, 393];
 
 image21 = image('CData', RiskGame(21).image, 'AlphaData', RiskGame(21).imgAlpha);
 image21.Parent = gca;
-image21.XData = [396, 464];
+image21.XData = [394, 464];
 image21.YData = [337, 466];
 
 image22 = image('CData', RiskGame(22).image, 'AlphaData', RiskGame(22).imgAlpha);
