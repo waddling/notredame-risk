@@ -6,9 +6,6 @@ function [RiskGame, players, winner] = RiskGameExe(RiskGame, players)
 %clc;
 %clf;
 %=======
-%clear;
-%clc;
-%>>>>>>> 7982222d7a0d7efe4238e89871ddebc4739d91df
 
 %% Set Parameters
 
@@ -23,21 +20,21 @@ function [RiskGame, players, winner] = RiskGameExe(RiskGame, players)
 % Structure for which AI type players are
 % Will eventually be defined by GUI
 
-players(1).AttackAI = 'Aggressive';
-players(1).PlacementAI = '';
-players(1).bonusTroops = 0;
-
-players(2).AttackAI = 'Aggressive';
-players(2).PlacementAI = 'Random';
-players(2).bonusTroops = 0;
-
-players(3).AttackAI = 'Aggressive';
-players(3).PlacementAI = 'Random';
-players(3).bonusTroops = 0;
-
-players(4).AttackAI = 'Aggressive';
-players(4).PlacementAI = 'Random';
-players(4).bonusTroops = 0;
+% players(1).AttackAI = 'Aggressive';
+% players(1).PlacementAI = 'Defensive';
+% players(1).bonusTroops = 0;
+%
+% players(2).AttackAI = 'Aggressive';
+% players(2).PlacementAI = 'Defensive';
+% players(2).bonusTroops = 0;
+%
+% players(3).AttackAI = 'Aggressive';
+% players(3).PlacementAI = 'Defensive';
+% players(3).bonusTroops = 0;
+%
+% players(4).AttackAI = 'Aggressive';
+% players(4).PlacementAI = 'Defensive';
+% players(4).bonusTroops = 0;
 
 % Define troop bonuses for Quads
 
@@ -73,7 +70,7 @@ while victoryAchieved == false
             end
         end
         if hasQuad == true
-            players(iP).bonusTroops = players(iP).bonusTroops + westQB;          
+            players(iP).bonusTroops = players(iP).bonusTroops + westQB;
         end
         
         for iT = 5 : 12  % South Quad
@@ -85,7 +82,7 @@ while victoryAchieved == false
             end
         end
         if hasQuad == true
-            players(iP).bonusTroops = players(iP).bonusTroops + southQB;          
+            players(iP).bonusTroops = players(iP).bonusTroops + southQB;
         end
         
         for iT = 13 : 19  % Stadium Quad
@@ -97,7 +94,7 @@ while victoryAchieved == false
             end
         end
         if hasQuad == true
-            players(iP).bonusTroops = players(iP).bonusTroops + stadiumQB;          
+            players(iP).bonusTroops = players(iP).bonusTroops + stadiumQB;
         end
         
         for iT = 20 : 24  % God Quad
@@ -109,7 +106,7 @@ while victoryAchieved == false
             end
         end
         if hasQuad == true
-            players(iP).bonusTroops = players(iP).bonusTroops + godQB;          
+            players(iP).bonusTroops = players(iP).bonusTroops + godQB;
         end
         
         for iT = 25 : 30  % Mod Quad
@@ -121,7 +118,7 @@ while victoryAchieved == false
             end
         end
         if hasQuad == true
-            players(iP).bonusTroops = players(iP).bonusTroops + modQB;          
+            players(iP).bonusTroops = players(iP).bonusTroops + modQB;
         end
         
         for iT = 31 : 36  % North Quad
@@ -133,32 +130,34 @@ while victoryAchieved == false
             end
         end
         if hasQuad == true
-            players(iP).bonusTroops = players(iP).bonusTroops +  northQB;          
+            players(iP).bonusTroops = players(iP).bonusTroops +  northQB;
         end
-    end
-    % Placement Round
-    for iP = 1 : 4
+        % Placement Round
         territoryCount = 0;
         for iT = 1 : length(RiskGame)
             if RiskGame(iT).player == iP
-               territoryCount = territoryCount + 1;
+                territoryCount = territoryCount + 1;
             end
-            addTroops = floor(territoryCount/3) + players(iP).bonusTroops;
+            addTroops = territoryCount/3 + players(iP).bonusTroops;
+            if addTroops < 1 && addTroops > 0
+                addTroops = 1;
+            end
+            addingTroops = floor(addTroops);
         end
         % Chooses AI
-        switch players(iP).PlacementAI
-            case 'Aggressive'
-                RiskGame = troopPlaceAggressive(addTroops,iP,RiskGame);
-            case 'Defensive'
-                RiskGame = troopPlaceDefensive(addTroops,iP,RiskGame);
-            case 'Balanced'
-                RiskGame = troopPlaceBalanced(addTroops,iP,RiskGame);
-            otherwise
-                RiskGame = troopPlaceRandom(addTroops,iP,RiskGame);
+        if addingTroops > 0
+            switch players(iP).PlacementAI
+                case 'Aggressive'
+                    RiskGame = troopPlaceAggressive(addTroops,iP,RiskGame);
+                case 'Defensive'
+                    RiskGame = troopPlaceDefensive(addTroops,iP,RiskGame);
+                case 'Balanced'
+                    RiskGame = troopPlaceBalanced(addTroops,iP,RiskGame);
+                otherwise
+                    RiskGame = troopPlaceRandom(addTroops,iP,RiskGame);
+            end
         end
-    end
-    % Attack Round
-    for iP = 1 : 4
+        % Attack Round
         for iT = 1 : length(RiskGame)
             if RiskGame(iT).player == iP
                 for iL = 1 : length(RiskGame(iT).locations)
@@ -176,9 +175,7 @@ while victoryAchieved == false
                 end
             end
         end
-    end
-    % Check for victory
-    for iP = 1 : 4
+        % Check for victory
         territoryCount = 0;
         for iT = 1 : length(RiskGame)
             if RiskGame(iT).player == iP
@@ -190,5 +187,6 @@ while victoryAchieved == false
             winner = iP;
         end
     end
+end
 end
 
