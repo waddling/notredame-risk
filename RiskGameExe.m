@@ -20,21 +20,21 @@ function [RiskGame, winner] = RiskGameExe(RiskGame, players)
 % Structure for which AI type players are
 % Will eventually be defined by GUI
 
-% players(1).AttackAI = 'Aggressive';
-% players(1).PlacementAI = 'Defensive';
-% players(1).bonusTroops = 0;
-%
-% players(2).AttackAI = 'Aggressive';
-% players(2).PlacementAI = 'Defensive';
-% players(2).bonusTroops = 0;
-%
-% players(3).AttackAI = 'Aggressive';
-% players(3).PlacementAI = 'Defensive';
-% players(3).bonusTroops = 0;
-%
-% players(4).AttackAI = 'Aggressive';
-% players(4).PlacementAI = 'Defensive';
-% players(4).bonusTroops = 0;
+players(1).AttackAI = 'Aggressive';
+players(1).PlacementAI = 'Aggressive';
+players(1).bonusTroops = 0;
+
+players(2).AttackAI = 'Aggressive';
+players(2).PlacementAI = 'Balanced';
+players(2).bonusTroops = 0;
+
+players(3).AttackAI = 'Random';
+players(3).PlacementAI = 'Random';
+players(3).bonusTroops = 0;
+
+players(4).AttackAI = 'Balanced';
+players(4).PlacementAI = 'Random';
+players(4).bonusTroops = 0;
 
 % Define troop bonuses for Quads
 
@@ -169,15 +169,19 @@ while victoryAchieved == false
                             
                             if hasWon == true
                                 RiskGame(it).player = iP;
-                                RiskGame(it).armies = RiskGame(iT).armies - 1;
-                                RiskGame(iT).armies = 1;
-                            
+                                RiskGame(it).armies = floor((3/4)*(RiskGame(iT).armies));
+                                RiskGame(iT).armies = RiskGame(iT).armies - RiskGame(it).armies;
+                                
                             end
                         end
                     end
                 end
             end
         end
+        % Fortification Stage
+ 
+        RiskGame = fortify(RiskGame, iP);
+        
         % Check for victory
         territoryCount = 0;
         for iT = 1 : length(RiskGame)
@@ -188,9 +192,9 @@ while victoryAchieved == false
         if territoryCount == length(RiskGame)
             victoryAchieved = true;
             winner = iP;
-        
+            
         end
-        if victoryAchieved == true 
+        if victoryAchieved == true
             break
         end
     end
