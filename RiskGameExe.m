@@ -142,10 +142,10 @@ while victoryAchieved == false
             if addTroops < 1 && addTroops > 0
                 addTroops = 1;
             end
-            addingTroops = floor(addTroops);
+            addTroops = floor(addTroops);
         end
         % Chooses AI
-        if addingTroops > 0
+        if addTroops > 0
             switch players(iP).PlacementAI
                 case 'Aggressive'
                     RiskGame = troopPlaceAggressive(addTroops,iP,RiskGame);
