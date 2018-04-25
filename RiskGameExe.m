@@ -1,4 +1,4 @@
-function [RiskGame, players, winner] = RiskGameExe(RiskGame, players)
+function [RiskGame, winner] = RiskGameExe(RiskGame, players)
 % RiskGameExe
 
 %<<<<<<< HEAD
