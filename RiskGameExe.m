@@ -16,8 +16,10 @@ load('Risk_Structure.mat');
 % This calls a structure called RiskGame
 
 RiskGame = Risk_Load_Board(RiskGame);
-updateMap(RiskGame, handles);
 
+if handles.toggleAnimation.Value == 1
+    updateMap(RiskGame, handles);
+end
 % Structure for which AI type players are
 % Will eventually be defined by GUI
 
