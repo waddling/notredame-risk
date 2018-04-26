@@ -17,9 +17,10 @@ load('Risk_Structure.mat');
 
 RiskGame = Risk_Load_Board(RiskGame);
 
-if handles.toggleAnimation.Value == 1
+if handles.toggleAnimationMap.Value == 1
     updateMap(RiskGame, handles);
 end
+
 % Structure for which AI type players are
 % Will eventually be defined by GUI
 
@@ -184,10 +185,10 @@ while victoryAchieved == false && winner == 0
                             % territory
                             if hasWon == true
                                 RiskGame(it).player = iP;
-                                if handles.toggleAnimation.Value == 1
+                                if handles.toggleAnimationMap.Value == 1
                                     RiskGame = changeBuildingColor(RiskGame, it, iP);
                                     updateMap(RiskGame, handles);
-                                    pause(0.3);
+                                    pause(0.02);
                                 end
                                 % Put in 3/4 of the armies they had in the
                                 % territory they are attacking from

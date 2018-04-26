@@ -22,7 +22,7 @@ function varargout = riskBoard(varargin)
 
 % Edit the above text to modify the response to help riskBoard
 
-% Last Modified by GUIDE v2.5 24-Apr-2018 21:22:31
+% Last Modified by GUIDE v2.5 26-Apr-2018 09:50:13
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -114,39 +114,34 @@ function startButton_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+% Resets the graph everytime startButton is called
 handles.wins = [0 0 0 0];
+winsGraph(handles);
 
 for count = 1:str2double(handles.numSimulations.String)
     winPlayer = RiskGameExe(handles);
     handles.wins(winPlayer) = handles.wins(winPlayer) + 1;
+    
+    if handles.toggleAnimationGraph.Value == 1
+        winsGraph(handles);
+    end
+    
 end
 
-guidata(hObject, handles);
+% guidata(hObject, handles);
 
-winsGraph(handles);
-
-% if handles.toggleAnimation.Value == 1
-%     winner = RiskGameExe(handles);
-%     handles.winnerTxt.String = num2str(winner);
-% else 
-%     wins = [0 0 0 0];
-%     playerArray = [1 2 3 4];
-%     for count = 1:str2double(handles.numSimulations.String)
-%         winner = RiskGameExe(handles);
-%         wins(winner) = wins(winner) + 1;
-%        handles.winnerGraph = bar(playerArray, wins); 
-%     end
-%     
-% end
+if handles.toggleAnimationGraph.Value == 0
+        winsGraph(handles);
+end
 
 
-% --- Executes on button press in toggleAnimation.
-function toggleAnimation_Callback(hObject, eventdata, handles)
-% hObject    handle to toggleAnimation (see GCBO)
+% --- Executes on button press in toggleAnimationMap.
+function toggleAnimationMap_Callback(hObject, eventdata, handles)
+% hObject    handle to toggleAnimationMap (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of toggleAnimation
+% Hint: get(hObject,'Value') returns toggle state of toggleAnimationMap
 
 
 % --- Executes on selection change in p4PlaceStrat.
@@ -352,3 +347,12 @@ function edit2_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in toggleAnimationGraph.
+function toggleAnimationGraph_Callback(hObject, eventdata, handles)
+% hObject    handle to toggleAnimationGraph (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of toggleAnimationGraph
