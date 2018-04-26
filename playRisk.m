@@ -10,7 +10,6 @@ load('Risk_Structure.mat'); % Loads our initial structure
 
 RiskGame = Risk_Load_Board(RiskGame);
 
-troopNum = 5;
 
 % This example for loop will allow players 1 and 2 to place 5 troops using the aggressive strategy
 

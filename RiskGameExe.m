@@ -59,6 +59,9 @@ winner = 0;
 while victoryAchieved == false && winner == 0
     % Check for troop bonuses
     for iP = 1 : 4
+        if victoryAchieved == true
+            break
+        end
         players(iP).bonusTroops = 0;
         
         for iT = 1 : 4 % West Quad
@@ -202,8 +205,10 @@ while victoryAchieved == false && winner == 0
             
         end
         % Fortification Stage
-        if victoryAchieved == false
+        if victoryAchieved == false && territoryCount < 34
             RiskGame = fortify(RiskGame, iP);
+        else
+            RiskGame = 
         end
         % Check for victory
         territoryCount = 0;
