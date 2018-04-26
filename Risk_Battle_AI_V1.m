@@ -11,14 +11,18 @@ enemyTroops = RiskGame(enemyCountry).armies;
 
 %% Choose to attack
 
-ar = 0.8; % Aggressive AI ratio
-br = 1.2; % Balanced AI ratio
-dr = 1.8; % Defensive AI ratio
+ar = 1.5; 
+br = 2; 
+dr = 2.5;
+
+% ar = 0.8; % Aggressive AI ratio
+% br = 1.2; % Balanced AI ratio
+% dr = 1.8; % Defensive AI ratio
 
 % Chooses what AI is attacking with the if statements and
 attackerWon = false;
 
-if strcmp(AIType,'Aggressive')
+if AIType == 1
     while playerTroops / enemyTroops >= ar && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
@@ -26,7 +30,7 @@ if strcmp(AIType,'Aggressive')
         RiskGame(enemyCountry).armies = enemyTroops;
         
     end
-elseif strcmp(AIType,'Balanced') 
+elseif AIType == 2
     while playerTroops / enemyTroops >= br && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
@@ -34,7 +38,7 @@ elseif strcmp(AIType,'Balanced')
         RiskGame(enemyCountry).armies = enemyTroops;
         
     end
-elseif strcmp(AIType,'Defensive')
+elseif AIType == 3
     while playerTroops / enemyTroops >= dr && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);
         
@@ -42,7 +46,7 @@ elseif strcmp(AIType,'Defensive')
         RiskGame(enemyCountry).armies = enemyTroops;
       
     end
-elseif strcmp(AIType,'Random')
+else
     rChoice = randi(2) - 1;
     while rChoice == 1 && enemyTroops ~= 0 && playerTroops > 1
         [playerTroops,enemyTroops] = Risk_Battle(playerTroops,enemyTroops);

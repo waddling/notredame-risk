@@ -114,6 +114,30 @@ function startButton_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+handles.wins = [0 0 0 0];
+
+for count = 1:str2double(handles.numSimulations.String)
+    winPlayer = RiskGameExe(handles);
+    handles.wins(winPlayer) = handles.wins(winPlayer) + 1;
+end
+
+guidata(hObject, handles);
+
+winsGraph(handles);
+
+% if handles.toggleAnimation.Value == 1
+%     winner = RiskGameExe(handles);
+%     handles.winnerTxt.String = num2str(winner);
+% else 
+%     wins = [0 0 0 0];
+%     playerArray = [1 2 3 4];
+%     for count = 1:str2double(handles.numSimulations.String)
+%         winner = RiskGameExe(handles);
+%         wins(winner) = wins(winner) + 1;
+%        handles.winnerGraph = bar(playerArray, wins); 
+%     end
+%     
+% end
 
 
 % --- Executes on button press in toggleAnimation.
@@ -328,57 +352,3 @@ function edit2_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-function testPlayer_Callback(hObject, eventdata, handles)
-% hObject    handle to testPlayer (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of testPlayer as text
-%        str2double(get(hObject,'String')) returns contents of testPlayer as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function testPlayer_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to testPlayer (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function testBuilding_Callback(hObject, eventdata, handles)
-% hObject    handle to testBuilding (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of testBuilding as text
-%        str2double(get(hObject,'String')) returns contents of testBuilding as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function testBuilding_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to testBuilding (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-% --- Executes on button press in testFunction.
-function testFunction_Callback(hObject, eventdata, handles)
-% hObject    handle to testFunction (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-handles.gameInProgress = changeBuildingColor(handles.gameInProgress,str2double(handles.testBuilding.String), str2double(handles.testPlayer.String));
-guidata(hObject, handles);
-updateMap(handles.gameInProgress, handles);

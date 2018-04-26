@@ -16,7 +16,7 @@ territories2 = 0;
 territories3 = 0;
 territories4 = 0;
 
-
+% Iterates through all the territories in the RiskGame structure
 for iT = 1 : length(RiskGame)
     runAgain = true;
     while runAgain == true
@@ -32,6 +32,9 @@ for iT = 1 : length(RiskGame)
         else 
             RiskGame(iT).player = owner;
             RiskGame(iT).armies = 1;
+            
+            RiskGame = changeBuildingColor(RiskGame, iT, owner);
+            
             runAgain = false;
             switch owner
                 case 1

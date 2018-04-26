@@ -1,4 +1,4 @@
-function [RiskGame, winner] = RiskGameExe(RiskGame, players)
+function winner = RiskGameExe(handles)
 % RiskGameExe
 
 %<<<<<<< HEAD
@@ -9,31 +9,32 @@ function [RiskGame, winner] = RiskGameExe(RiskGame, players)
 
 %% Set Parameters
 
-% Load Main Structure
+%Load Main Structure
 
-%load('Risk_Structure.mat');
+load('Risk_Structure.mat');
 
 % This calls a structure called RiskGame
 
-%RiskGame = Risk_Load_Board(RiskGame);
+RiskGame = Risk_Load_Board(RiskGame);
+updateMap(RiskGame, handles);
 
 % Structure for which AI type players are
 % Will eventually be defined by GUI
 
-players(1).AttackAI = 'Balanced';
-players(1).PlacementAI = 'Random';
+players(1).AttackAI = handles.p1AttackStrat.Value;
+players(1).PlacementAI = handles.p1PlaceStrat.Value;
 players(1).bonusTroops = 0;
 
-players(2).AttackAI = 'Random';
-players(2).PlacementAI = 'Random';
+players(2).AttackAI = handles.p2AttackStrat.Value;
+players(2).PlacementAI = handles.p2PlaceStrat.Value;
 players(2).bonusTroops = 0;
 
-players(3).AttackAI = 'Aggressive';
-players(3).PlacementAI = 'Defensive';
+players(3).AttackAI = handles.p3AttackStrat.Value;
+players(3).PlacementAI = handles.p3PlaceStrat.Value;
 players(3).bonusTroops = 0;
 
-players(4).AttackAI = 'Aggressive';
-players(4).PlacementAI = 'Aggressive';
+players(4).AttackAI = handles.p4AttackStrat.Value;
+players(4).PlacementAI = handles.p4PlaceStrat.Value;
 players(4).bonusTroops = 0;
 
 % Define troop bonuses for Quads
@@ -150,16 +151,16 @@ while victoryAchieved == false && winner == 0
         % Chooses AI
         if addTroops > 0 && territoryCount < 34
             switch players(iP).PlacementAI
-                case 'Aggressive'
+                case 1
                     RiskGame = troopPlaceAggressive(addTroops,iP,RiskGame);
-                case 'Defensive'
+                case 2
                     RiskGame = troopPlaceDefensive(addTroops,iP,RiskGame);
-                case 'Balanced'
+                case 3
                     RiskGame = troopPlaceBalanced(addTroops,iP,RiskGame);
                 otherwise
                     RiskGame = troopPlaceRandom(addTroops,iP,RiskGame);
             end
-        else 
+        else
             RiskGame = troopPlaceDefensive(addTroops,iP,RiskGame);
         end
         % Attack Round
@@ -181,9 +182,14 @@ while victoryAchieved == false && winner == 0
                             % territory
                             if hasWon == true
                                 RiskGame(it).player = iP;
+                                if handles.toggleAnimation.Value == 1
+                                    RiskGame = changeBuildingColor(RiskGame, it, iP);
+                                    updateMap(RiskGame, handles);
+                                    pause(0.3);
+                                end
                                 % Put in 3/4 of the armies they had in the
                                 % territory they are attacking from
-                                RiskGame(it).armies = floor((3/4)*(RiskGame(iT).armies));
+                                RiskGame(it).armies = floor((5/6)*(RiskGame(iT).armies));
                                 % Territory they attacked from loses the
                                 % amount of troops they placed
                                 RiskGame(iT).armies = RiskGame(iT).armies - RiskGame(it).armies;
